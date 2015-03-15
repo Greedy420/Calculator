@@ -19,6 +19,10 @@ public:
     void destroy();
     void destroy(node<Type> *leaf);
 
+    node<Type> *GetRoot();
+    void SetRoot(node<Type> *leaf);
+
+private:
     node<Type> *root;
 };
 
@@ -49,6 +53,19 @@ void Tree<Type>::destroy(node<Type> *leaf)
         destroy(leaf->right);
         delete leaf;
       }
+}
+
+template <class Type>
+node<Type> *Tree<Type>::GetRoot()
+{
+    if (root != NULL)
+        return root;
+}
+
+template <class Type>
+void Tree<Type>::SetRoot(node<Type> *leaf)
+{
+    root = leaf;
 }
 
 #endif // TREE_H
