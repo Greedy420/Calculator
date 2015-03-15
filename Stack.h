@@ -14,6 +14,8 @@ public:
     int isEmpty() const;
     int isFull() const;
 
+    Type GetTop();
+
     void operator<<(Type);
     void operator>>(Type&);
 
@@ -91,6 +93,13 @@ int Stack<Type>::isFull() const
         return 1;
     else
         return 0;
+}
+
+template <class Type>
+Type Stack<Type>::GetTop()
+{
+    if (isEmpty() != 1)
+        return data[topStack-1];
 }
 
 template <class Type>
