@@ -1,24 +1,26 @@
 #include "Prefix.h"
 #include "Postfix.h"
 #include "Infix.h"
+#include "EParser.h"
 #include "AngkaHandler.h"
 #include "RomanHandler.h"
 #include "LogicHandler.h"
-#include <iostream>
 
-using namespace std;
+// gak perlu iostream & std, udah ada di include entah yg mana
+
 int main()
 {
-    Infix A;
-    Prefix B;
+    Infix In;
+    Prefix Pre;
+    Postfix Post;
+    vector<string> input;
     AngkaHandler A1;
     RomanHandler B1;
     LogicHandler C1;
     
-    vector<string> split;
-    split = A.GetInput();
-    A.T.root = A.Parse(split);
-    B.PrintParser(A.T.root);
+    input = Pre.GetInput();
+    EXP.T.SetRoot(EXP.Parse(input));
+    EXP.PrintPrefix(EXP.T.GetRoot());
     
     A1.setvalue("420.42");
     B1.setvalue("MMD");
