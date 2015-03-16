@@ -1,5 +1,6 @@
 #ifndef MEMHANDLER_H
 #define MEMHANDLER_H
+#include "Stack.h"
 #include <string>
 #include <fstream>
 
