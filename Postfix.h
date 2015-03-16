@@ -5,13 +5,12 @@
 
 class Postfix : public Input {
 public:
-    vector<string> GetInput()
+    void GetInput()
     {
         string input;
         getline(cin, input);
         Tokenize(input, Result);
         reverse(Result.begin(), Result.end());
-        return Result;
     }
 };
 
