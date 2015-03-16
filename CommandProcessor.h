@@ -41,3 +41,4 @@ void CommandProcessor::Redo(int n){
     }
 }
 
+#endif
