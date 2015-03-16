@@ -13,7 +13,7 @@ public:
             return 1;
     }
 
-    vector<string> GetInput()
+    void GetInput()
     {
         string input;
         string temp;
@@ -75,7 +75,6 @@ public:
         }
 
         reverse(Result.begin(), Result.end());
-        return Result;
     }
 };
 
