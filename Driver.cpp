@@ -2,11 +2,10 @@
 #include "Postfix.h"
 #include "Infix.h"
 #include "EParser.h"
+#include "StdCalc.h"
 #include "AngkaHandler.h"
 #include "RomanHandler.h"
 #include "LogicHandler.h"
-
-// gak perlu iostream & std, udah ada di include entah yg mana
 
 int main()
 {
