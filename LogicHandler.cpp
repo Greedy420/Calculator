@@ -19,9 +19,9 @@ LogicHandler& LogicHandler::operator=(const LogicHandler& AH){
 
 void LogicHandler::setvalue(std::string value) {
     try {
-        if (test != '1' && test != '0' && test != '2' && test != '3' && test != '4' && test != '5' && test != '6' && test != '7' && test != '8' && test != '9' && test != '.') {
-                throw -1;
-            }
+        if (value.compare("true") != 0 && value.compare("false") != 0 && value.compare("1") != 0 && value.compare("0") != 0) {
+            throw -1;
+        }
         int x = 0;
         float f = 0;
 
