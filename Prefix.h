@@ -5,12 +5,11 @@
 
 class Prefix : public Input {
 public:
-    vector<string> GetInput()
+    void GetInput()
     {
         string input;
         getline(cin, input);
         Tokenize(input, Result);
-        return Result;
     }
 };
 
