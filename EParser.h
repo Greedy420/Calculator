@@ -10,10 +10,13 @@ using namespace std;
 
 class EParser {
 public:
-    Tree<string> T;
-
     ~EParser()
     {}
+
+    void StartParse(vector<string>& input)
+    {
+        T.root= Parse(input);
+    }
 
     node<string> *Parse(vector<string>& input) // Membaca string prefix dan masukkan ke tree
     {
@@ -63,6 +66,8 @@ public:
             PrintInfix(leaf->right);
         }
     }
+
+    Tree<string> T;
 };
 
 #endif // EPARSER_H
