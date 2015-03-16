@@ -26,7 +26,12 @@ public:
         }
     }
 
-    virtual vector<string> GetInput() = 0; // Baca input user sesuai notasi dan return sebuah vector
+    virtual vector<string> GetResult()
+    {
+        return Result;
+    }
+
+    virtual void GetInput() = 0; // Baca input user sesuai notasi dan return sebuah vector
 
 protected:
     vector<string> Result;
