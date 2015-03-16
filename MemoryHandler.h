@@ -1,6 +1,7 @@
 #ifndef MEMHANDLER_H
 #define MEMHANDLER_H
 #include <string>
+#include <fstream>
 
 class MemoryHandler : public Stack<string> {
 public:
@@ -8,6 +9,7 @@ public:
     ~MemoryHandler();
     void PrintNMem(int n = 1);
     void PrintAll();
+    void SaveMem();
 };
 
 MemoryHandler::MemoryHandler() {
@@ -41,6 +43,22 @@ void MemoryHandler::PrintAll() {
         this->Pop(item);
         temp.Push(item);
         std::cout << item + " ";
+    }
+    while (temp.isEmpty()!=1) {
+        temp.Pop(item);
+        this->Push(item);
+    }
+}
+
+void MemoryHandler::SaveMem() {
+    Stack<string> temp;
+    string item;
+
+    ofstream file("LastSavedMemory.txt");
+    while (this->isEmpty()!=1) {
+        this->Pop(item);
+        temp.Push(item);
+        file << item << std::endl;
     }
     while (temp.isEmpty()!=1) {
         temp.Pop(item);
