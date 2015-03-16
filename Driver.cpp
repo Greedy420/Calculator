@@ -6,6 +6,7 @@
 #include "AngkaHandler.h"
 #include "RomanHandler.h"
 #include "LogicHandler.h"
+#include "MemoryHandler.h"
 
 int main()
 {
@@ -18,6 +19,7 @@ int main()
     AngkaHandler A1;
     RomanHandler B1;
     LogicHandler C1;
+    MemoryHandler M;
     
     In.GetInput();
     input = In.GetResult();
@@ -32,5 +34,15 @@ int main()
     cout << A1.getvalue() << endl;
     cout << B1.getvalue() << endl;
     cout << C1.getvalue() << endl;
+    
+    M.Push("BOSS NIGGA");
+    M.Push("4 NIGGA");
+    M.Push("3 NIGGA");
+    M.Push("2 NIGGA");
+    M.Push("1 NIGGA");
+    M.PrintNMem(3);
+    cout << endl;
+    M.PrintAll();
+    
     return 0;
 }
