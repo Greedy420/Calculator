@@ -23,7 +23,7 @@ void AngkaHandler::setvalue(std::string value) {
         float f = 0;
         while (value[x] != '\0') {
             char test = value[x];
-            if (test != '1' && test != '0' && test != '2' && test != '3' && test != '4' && test != '5' && test != '9' && test != '.') {
+            if (test != '0' && test != '1' && test != '2' && test != '3' && test != '4' && test != '5' && test != '6' && test != '7' && test != '8' && test != '9' && test != '.') {
                 throw -1;
             }
             x++;
