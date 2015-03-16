@@ -11,16 +11,21 @@
 int main()
 {
     Infix In;
-    Prefix Pre;
     Postfix Post;
+    Prefix Pre;
+    EParser EXP;
+    StdCalc C;
     vector<string> input;
     AngkaHandler A1;
     RomanHandler B1;
     LogicHandler C1;
     
-    input = Pre.GetInput();
-    EXP.T.SetRoot(EXP.Parse(input));
-    EXP.PrintPrefix(EXP.T.GetRoot());
+    In.GetInput();
+    input = In.GetResult();
+    EXP.StartParse(input);
+
+    C.StartCalc(EXP.T.root);
+    cout << C.GetCalcResult() << endl;
     
     A1.setvalue("420.42");
     B1.setvalue("MMD");
