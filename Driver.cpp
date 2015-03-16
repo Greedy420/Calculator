@@ -20,21 +20,21 @@ int main()
     RomanHandler B1;
     LogicHandler C1;
     MemoryHandler M;
-    
+
     In.GetInput();
     input = In.GetResult();
     EXP.StartParse(input);
 
     C.StartCalc(EXP.T.root);
     cout << C.GetCalcResult() << endl;
-    
+
     A1.setvalue("420.42");
     B1.setvalue("MMD");
     C1.setvalue("true");
     cout << A1.getvalue() << endl;
     cout << B1.getvalue() << endl;
     cout << C1.getvalue() << endl;
-    
+
     M.Push("BOSS NIGGA");
     M.Push("4 NIGGA");
     M.Push("3 NIGGA");
@@ -43,6 +43,7 @@ int main()
     M.PrintNMem(3);
     cout << endl;
     M.PrintAll();
-    
+    M.SaveMem();
+
     return 0;
 }
