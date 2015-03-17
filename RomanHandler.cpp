@@ -96,3 +96,88 @@ void RomanHandler::setvalue(std::string value) {
 float RomanHandler::getvalue() const {
 	return value;
 }
+
+std::string RomanHandler::returnval(float input) {
+    std::string returnstr;
+    int val, mcount = 0, ccount = 0, icount = 0, xcount = 0;
+
+    val = input;
+    while (val != 0) {
+        if ((val - 1000)>=0) {
+            val = val-1000;
+            mcount++;
+        }
+        else {
+            if ((val - 100) >= 0) {
+                val = val-100;
+                ccount++;
+            }
+            else {
+                if ((val - 10) >= 0) {
+                    val = val-10;
+                    xcount++;
+                }
+                else {
+                    val = val-1;
+                    icount++;
+                }
+            }
+        }
+    }
+    for (int i=1; i<=mcount; i++) {
+            returnstr = returnstr + 'M';
+        }
+
+
+    if (ccount == 9) {
+        returnstr = returnstr + "CM";
+        ccount = ccount - 9;
+    }
+    else if (ccount >= 5) {
+        returnstr = returnstr + "D";
+        ccount = ccount - 5;
+    }
+    else if (ccount == 4) {
+        returnstr = returnstr + "CD";
+        ccount = ccount - 4;
+    }
+    for (int i=1; i<=ccount; i++) {
+        returnstr = returnstr + 'C';
+    }
+
+
+    if (xcount == 9) {
+        returnstr = returnstr + "XC";
+        xcount = xcount - 9;
+    }
+    else if (xcount >= 5) {
+        returnstr = returnstr + "L";
+        xcount = xcount - 5;
+    }
+    else if (xcount == 4) {
+        returnstr = returnstr + "XL";
+        xcount = xcount - 4;
+    }
+    for (int i=1; i<=xcount; i++) {
+        returnstr = returnstr + 'X';
+    }
+
+
+    if (icount == 9) {
+        returnstr = returnstr + "IX";
+        icount = icount - 9;
+    }
+    else if (icount >= 5) {
+        returnstr = returnstr + "V";
+        icount = icount - 5;
+    }
+    else if (icount == 4) {
+        returnstr = returnstr + "IV";
+        icount = icount - 4;
+    }
+    for (int i=1; i<=icount; i++) {
+        returnstr = returnstr + 'I';
+    }
+
+    return returnstr;
+}
