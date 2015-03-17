@@ -9,6 +9,7 @@ public:
     {
         string input;
         getline(cin, input);
+        Result.erase(Result.begin(), Result.end());
         Tokenize(input, Result);
     }
 };
