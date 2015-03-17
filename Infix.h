@@ -25,12 +25,11 @@ public:
             return 1;
     }
 
-    void GetInput()
+    void GetInput(string input)
     {
-        string input, temp, temp2;
+        string temp, temp2;
         vector<string> split;
         Stack<string> s;
-        getline(cin, input);
         Tokenize(input, split);
 
         Result.erase(Result.begin(), Result.end());
