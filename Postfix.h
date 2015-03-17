@@ -5,10 +5,8 @@
 
 class Postfix : public Input {
 public:
-    void GetInput()
+    void GetInput(string input)
     {
-        string input;
-        getline(cin, input);
         Result.erase(Result.begin(), Result.end());
         Tokenize(input, Result);
         reverse(Result.begin(), Result.end());
