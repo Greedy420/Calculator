@@ -8,7 +8,7 @@ class Calculator {
 public:
     Calculator()
     {
-        char control, dummy;
+        char control;
         bool isLogic = false;
         bool isRoman = false;
         bool isInfix = false;
