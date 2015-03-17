@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "Stack.h"
 #include "StdOptr.h"
+#include "LogicOptr.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
         return Result;
     }
 
-    virtual void GetInput() = 0; // Baca input user sesuai notasi dan return sebuah vector
+    virtual void GetInput(string input) = 0; // Baca input user sesuai notasi dan return sebuah vector
 
 protected:
     vector<string> Result;
