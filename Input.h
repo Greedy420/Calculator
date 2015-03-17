@@ -7,6 +7,7 @@
 #include <iterator>
 #include <algorithm>
 #include "Stack.h"
+#include "StdOptr.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ public:
 
 protected:
     vector<string> Result;
+    OperatorHandler *Optr;
 };
 
 #endif // INPUT_H
