@@ -7,7 +7,8 @@ class StdCalc : public Calculate {
 public:
     StdCalc()
     {
-        O = new AngkaHandler;
+        Opr = new AngkaHandler;
+        Optr = new StdOptr;
     }
 
     ~StdCalc() {}
@@ -15,20 +16,27 @@ public:
     float Calc(node<string> *leaf)
     {
         if (leaf != NULL) {
-            string temp = leaf->value;
-            if (temp == "+" || temp == "-" || temp == "*" || temp == "/") {
-                if (temp == "+")
+            Optr->SetOperator(leaf->value);
+            if (Optr->isOperator()) {
+                if (Optr->GetOperator() == "+")
                     return (Calc(leaf->left) + Calc(leaf->right));
-                else if (temp == "-")
+                else if (Optr->GetOperator() == "-")
                     return (Calc(leaf->left) - Calc(leaf->right));
-                else if (temp == "*")
+                else if (Optr->GetOperator() == "*")
                     return (Calc(leaf->left) * Calc(leaf->right));
-                else if (temp == "/")
+                else if (Optr->GetOperator() == "/")
                     return (Calc(leaf->left) / Calc(leaf->right));
+                else if (Optr->GetOperator() == "div") {
+                    div_t divresult;
+                    divresult = div((int)Calc(leaf->left), (int)Calc(leaf->right));
+                    return divresult.quot;
+                }
+                else if (Optr->GetOperator() == "mod")
+                    return ((int)Calc(leaf->left) % (int)Calc(leaf->right));
             }
             else {
-                O->setvalue(temp);
-                return O->getvalue();
+                Opr->setvalue(leaf->value);
+                return Opr->getvalue();
             }
         }
     }
