@@ -16,11 +16,10 @@ CommandProcessor::CommandProcessor(){}
 CommandProcessor::~CommandProcessor(){}
 
 int i = 0;
-
+Stack<string> temp;
+string item;
+    
 void CommandProcessor::Undo(int n){
-    Stack<string> temp;
-    string item;
-
     if(i<n && this->isEmpty()!=1){
         this->Pop(item);
         temp.Push(item);
@@ -30,9 +29,6 @@ void CommandProcessor::Undo(int n){
 }
 
 void CommandProcessor::Redo(int n){
-    Stack<string> temp;
-    string item;
-
     if(i>=n && temp.isEmpty()!=1){
         temp.Pop(item);
         this->Push(item);
