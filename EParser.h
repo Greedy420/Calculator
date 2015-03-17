@@ -22,7 +22,7 @@ public:
     {
         string container = input[0];
         input.erase(input.begin());
-        if (container == "+" || container == "-" || container == "*" || container == "/") {
+        if (container == "+" || container == "-" || container == "*" || container == "/" || container == "div" || container == "mod") {
             node<string> *leaf;
             leaf = new node<string>;
             leaf->value = container;
