@@ -5,9 +5,14 @@
 
 class Infix : public Input {
 public:
+    Infix()
+    {
+       Optr = new StdOptr;
+    }
+
     int Precedence(string opr)
     {
-        if (opr == "*" || opr == "/")
+        if (opr == "*" || opr == "/" || opr == "div" || opr == "mod")
             return 2;
         else // (opr == "+" || opr == "-")
             return 1;
@@ -15,9 +20,7 @@ public:
 
     void GetInput()
     {
-        string input;
-        string temp;
-        string temp2;
+        string input, temp, temp2;
         vector<string> split;
         Stack<string> s;
         getline(cin, input);
@@ -33,8 +36,9 @@ public:
 
         while (!split.empty()) {
             temp = split.front();
+            Optr->SetOperator(temp);
             split.erase(split.begin());
-            if (temp == "+" || temp == "-" || temp == "*" || temp == "/") {
+            if (Optr->isOperator()) {
                 label :
                     if (s.isEmpty() == 1)
                         s.Push(temp);
