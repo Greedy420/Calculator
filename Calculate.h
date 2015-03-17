@@ -2,7 +2,10 @@
 #define CALCULATE_H
 
 #include "AngkaHandler.h"
+#include "RomanHandler.h"
+#include "LogicHandler.h"
 #include "StdOptr.h"
+#include "LogicOptr.h"
 #include "Tree.h"
 
 class Calculate {
