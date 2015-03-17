@@ -1,16 +1,20 @@
-#ifndef MEMHANDLER_H
-#define MEMHANDLER_H
+#ifndef MEMORYHANDLER_H
+#define MEMORYHANDLER_H
 #include "Stack.h"
 #include <string>
 #include <fstream>
 
-class MemoryHandler : public Stack<string> {
+class MemoryHandler {
 public:
     MemoryHandler();
     ~MemoryHandler();
+    void PushToMem(string item);
     void PrintNMem(int n = 1);
     void PrintAll();
     void SaveMem();
+
+private:
+    Stack<string> Memory;
 };
 
 MemoryHandler::MemoryHandler() {
@@ -19,52 +23,65 @@ MemoryHandler::MemoryHandler() {
 MemoryHandler::~MemoryHandler() {
 }
 
+void MemoryHandler::PushToMem(string item) {
+    Memory.Push(item);
+}
+
 void MemoryHandler::PrintNMem(int n) {
-    Stack<string> temp;
     string item;
+    Stack<string> temp;
     int i = 1;
 
-    while (i<=n && this->isEmpty()!=1) {
-        this->Pop(item);
+    if (Memory.isEmpty() == 1)
+        std::cout << "Memory is empty" << endl;
+
+    while (i<=n && Memory.isEmpty()!=1) {
+        Memory.Pop(item);
         temp.Push(item);
-        std::cout << item + " ";
+        std::cout << item << endl;
         i += 1;
     }
     while (temp.isEmpty()!=1) {
         temp.Pop(item);
-        this->Push(item);
+        Memory.Push(item);
     }
 }
 
 void MemoryHandler::PrintAll() {
-    Stack<string> temp;
     string item;
+    Stack<string> temp;
 
-    while (this->isEmpty()!=1) {
-        this->Pop(item);
+    if (Memory.isEmpty() == 1)
+        std::cout << "Memory is empty" << endl;
+
+    while (Memory.isEmpty()!=1) {
+        Memory.Pop(item);
         temp.Push(item);
-        std::cout << item + " ";
+        std::cout << item << endl;
     }
     while (temp.isEmpty()!=1) {
         temp.Pop(item);
-        this->Push(item);
+        Memory.Push(item);
     }
 }
 
 void MemoryHandler::SaveMem() {
-    Stack<string> temp;
     string item;
+    Stack<string> temp;
 
     ofstream file("LastSavedMemory.txt");
-    while (this->isEmpty()!=1) {
-        this->Pop(item);
+    while (Memory.isEmpty()!=1) {
+        Memory.Pop(item);
         temp.Push(item);
         file << item << std::endl;
     }
     while (temp.isEmpty()!=1) {
         temp.Pop(item);
-        this->Push(item);
+        Memory.Push(item);
     }
+
+    file.close();
+    std::cout << "Memory saved to text file" << endl;
 }
 
-#endif // MEMHANDLER_H
+#endif // MEMORYHANDLER_H
