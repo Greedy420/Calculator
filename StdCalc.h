@@ -5,10 +5,19 @@
 
 class StdCalc : public Calculate {
 public:
-    StdCalc()
+    StdCalc(int x, int y)
     {
-        Opr = new AngkaHandler;
-        Optr = new StdOptr;
+        switch (x) {
+        default:
+        case 1: Opr = new AngkaHandler; break;
+        case 2: Opr = new RomanHandler; break;
+        }
+
+        switch (y) {
+        default:
+        case 1: Optr = new StdOptr; break;
+        }
+
     }
 
     ~StdCalc() {}
