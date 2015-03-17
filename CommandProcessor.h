@@ -9,16 +9,16 @@ public:
     ~CommandProcessor();
     void Undo();
     void Redo();
+private:
+    int i;
+    Stack<string> temp;
+    string item;
 };
 
-CommandProcessor::CommandProcessor(){}
+CommandProcessor::CommandProcessor(){ i = 0; }
 
 CommandProcessor::~CommandProcessor(){}
 
-int i = 0;
-Stack<string> temp;
-string item;
-    
 void CommandProcessor::Undo(int n){
     if(i<n && this->isEmpty()!=1){
         this->Pop(item);
