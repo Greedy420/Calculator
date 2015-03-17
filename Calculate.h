@@ -2,6 +2,7 @@
 #define CALCULATE_H
 
 #include "AngkaHandler.h"
+#include "StdOptr.h"
 #include "Tree.h"
 
 class Calculate {
@@ -22,7 +23,8 @@ public:
 
 protected:
     float CalcResult;
-    OperandHandler *O;
+    OperandHandler *Opr;
+    OperatorHandler *Optr;
 };
 
 #endif // CALCULATE_H
