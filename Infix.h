@@ -5,16 +5,23 @@
 
 class Infix : public Input {
 public:
-    Infix()
+    Infix(int x)
     {
-       Optr = new StdOptr;
+       switch (x) {
+       default:
+       case 1:  Optr = new StdOptr; break;
+       case 2:  Optr = new LogicOptr; break;
+       }
+
     }
 
     int Precedence(string opr)
     {
-        if (opr == "*" || opr == "/" || opr == "div" || opr == "mod")
+        if (opr == "NOT")
+            return 3;
+        else if (opr == "*" || opr == "/" || opr == "div" || opr == "mod" || opr == "AND")
             return 2;
-        else // (opr == "+" || opr == "-")
+        else
             return 1;
     }
 
@@ -26,6 +33,7 @@ public:
         getline(cin, input);
         Tokenize(input, split);
 
+        Result.erase(Result.begin(), Result.end());
         reverse(split.begin(), split.end());
         for (int i = 0; i < split.size(); i++) {
             if (split[i] == "(")
